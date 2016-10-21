@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload=function(){
+            function mIndex(n){
+                var result=n<10 ? '0'+n:''+n;
+                return result;
+            }
+            function  time(){
+                var aImg=document.getElementsByTagName('img');
+                var date=new Date();
+                var hours=date.getHours();
+                var min=date.getMinutes();
+                var sec=date.getSeconds();
+                var str=mIndex(hours)+mIndex(min)+mIndex(sec);
+                var j=0;
+                for(var i=0;i<aImg.length;i++){
+                    if(i==2||i==5){
+                        aImg[i].src='10.JPG';
+                    }else{
+                        aImg[i].src=str.charAt(j)+'.JPG';
+                        j++
+                    }
+                }
+            }
+            time();
+            setInterval(time,1000);
+        }
+    </script>
+</head>
+<body>
+<img src="0.JPG" alt="">
+<img src="0.JPG" alt="">
+<img src="10.JPG" alt="">
+<img src="0.JPG" alt="">
+<img src="0.JPG" alt="">
+<img src="10.JPG" alt="">
+<img src="0.JPG" alt="">
+<img src="0.JPG" alt="">
+</body>
+</html>
